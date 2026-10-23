@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do List Life Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Greeting Widget -->
+      <section id="greeting-widget" aria-label="Greeting and Clock">
+        <h2 class="widget-title">Greeting</h2>
+        <div id="greeting-message" aria-live="polite"></div>
+        <div id="clock-time" aria-live="polite" aria-label="Current time"></div>
+        <div id="clock-date" aria-live="polite" aria-label="Current date"></div>
+      </section>
+
+      <!-- Focus Timer Widget -->
+      <section id="timer-widget" aria-label="Focus Timer">
+        <h2 class="widget-title">Focus Timer</h2>
+        <div id="timer-display" aria-live="polite" aria-label="Timer display">25:00</div>
+        <div id="timer-expired-alert" role="alert" aria-live="assertive" hidden>
+          Time's up! Reset to start a new session.
+        </div>
+        <div class="timer-controls">
+          <button id="timer-start-stop" type="button">Start</button>
+          <button id="timer-reset" type="button">Reset</button>
+        </div>
+      </section>
+
+      <!-- To-Do List Widget -->
+      <section id="todo-widget" aria-label="To-Do List">
+        <h2 class="widget-title">To-Do List</h2>
+        <div id="todo-error" role="alert" aria-live="polite"></div>
+        <form id="todo-form" aria-label="Add task">
+          <label for="task-input" class="sr-only">New task description</label>
+          <input
+            type="text"
+            id="task-input"
+            name="task-input"
+            placeholder="Add a new task…"
+            maxlength="500"
+            autocomplete="off"
+            aria-describedby="task-input-error"
+          />
+          <span id="task-input-error" class="inline-error" aria-live="polite"></span>
+          <button id="add-task-btn" type="submit">Add</button>
+        </form>
+        <ul id="task-list" aria-label="Task list"></ul>
+      </section>
+
+      <!-- Quick Links Widget -->
+      <section id="links-widget" aria-label="Quick Links">
+        <h2 class="widget-title">Quick Links</h2>
+        <div id="links-error" role="alert" aria-live="polite"></div>
+        <form id="links-form" aria-label="Add quick link">
+          <label for="link-label-input" class="sr-only">Link label</label>
+          <input
+            type="text"
+            id="link-label-input"
+            name="link-label-input"
+            placeholder="Label"
+            maxlength="50"
+            autocomplete="off"
+            aria-describedby="link-label-error"
+          />
+          <span id="link-label-error" class="inline-error" aria-live="polite"></span>
+          <label for="link-url-input" class="sr-only">Link URL</label>
+          <input
+            type="text"
+            id="link-url-input"
+            name="link-url-input"
+            placeholder="URL"
+            maxlength="2048"
+            autocomplete="off"
+            aria-describedby="link-url-error"
+          />
+          <span id="link-url-error" class="inline-error" aria-live="polite"></span>
+          <button id="add-link-btn" type="submit">Add Link</button>
+        </form>
+        <div id="links-list" aria-label="Quick links panel"></div>
+      </section>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
